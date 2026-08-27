@@ -11,7 +11,7 @@
 
 ## Respondemos la pregunta 
 - Agregamos porque nos gusta la carrera
-![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes%20README/pregunta.png
+![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes%20README/pregunta.png)
 
 - Commit de la página antes de la mejora visual con las imágenes de los hobbies, con menus llenos y la pregunta resuelta: https://github.com/sebastian-david-pizango/iw/commit/e0a8502272cd6649d5e7aece1feb6e76a5bf1b7b
 
