@@ -17,7 +17,7 @@
 
 ## Mejora del estilo visual
 - Mejora del estilo visual de la pagina
-![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes/mejora.png)
+![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes%20README/mejora.png)
 
 - Commit con la mejora de la pagina con css: https://github.com/sebastian-david-pizango/iw/commit/a3b8a4e98e50c34d3db25633b672ae5e5af8322c
 
