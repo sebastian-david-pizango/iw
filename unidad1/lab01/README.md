@@ -7,6 +7,6 @@
 
 ## Agregar hobbies
 - Aquí agregamos las imágenes de nuestros hobbies
-![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes/index.png)
+![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes/hobbies.png)
 
  
