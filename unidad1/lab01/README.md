@@ -16,7 +16,8 @@
 - Commit de la página antes de la mejora visual con las imágenes de los hobbies, con menus llenos y la pregunta resuelta: https://github.com/sebastian-david-pizango/iw/commit/e0a8502272cd6649d5e7aece1feb6e76a5bf1b7b
 
 ## Mejora del estilo visual
-- Mejora del estilo visual de la pagina
+- Mejora del estilo visual de la pagina\
+
 ![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes%20README/mejora.png)
 
 - Commit con la mejora de la pagina con css: https://github.com/sebastian-david-pizango/iw/commit/a3b8a4e98e50c34d3db25633b672ae5e5af8322c
