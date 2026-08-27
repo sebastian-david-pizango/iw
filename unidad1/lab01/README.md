@@ -3,17 +3,17 @@
 ## Creación del index 
 
 - En el index pusimos el color de la página los menús vacíos para la arquitectura y un comentario de que es nuestra primera página
-![Index Primer Vistazo](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes/index.png)
+![Index Primer Vistazo](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes%20README/index.png)
 
 ## Agregar hobbies
 - Aquí agregamos las imágenes de nuestros hobbies
-![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes/hobbies.png)
+![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes%20README/hobbies.png)
 
 ## Respondemos la pregunta 
 - Agregamos porque nos gusta la carrera
-![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes/pregunta.png)
+![Hobbies](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab01/imagenes%20README/pregunta.png
 
-- Commit de la página antes de la mejora visual con las imágenes de los hobbies, con menus llenos y la pregunta resuelta
+- Commit de la página antes de la mejora visual con las imágenes de los hobbies, con menus llenos y la pregunta resuelta: https://github.com/sebastian-david-pizango/iw/commit/e0a8502272cd6649d5e7aece1feb6e76a5bf1b7b
 
 ## Mejora del estilo visual
 - Mejora del estilo visual de la pagina
