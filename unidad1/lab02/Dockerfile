@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sed -i 's/^Listen 80$/Listen 8081/' /etc/apache2/ports.conf
+RUN sed -i 's/^Listen 80$/Listen 8088/' /etc/apache2/ports.conf
 
 COPY web/ /var/www/html/
 
