@@ -9,7 +9,7 @@
 ![parte 1](https://github.com/sebastian-david-pizango/iw/blob/main/unidad1/lab02/Imagenes%20README/Parte%201.png)
 ## Parte 2
 
-- En la parte 2 agregamos las dos páginas extra sisacad y sistramud 
+- En la parte 2 agregamos las dos páginas extra sisacad y sistradoc
 
 - Parte 2 commit: https://github.com/sebastian-david-pizango/iw/commit/acba346684a9f700693e271d50c9b73b8f190508
 
