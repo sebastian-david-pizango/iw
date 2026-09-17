@@ -1,0 +1,16 @@
+{
+  "name": "universidades-crud",
+  "version": "1.0.0",
+  "description": "CRUD de universidades licenciadas (Node.js + Express) con almacenamiento en CSV",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.6",
+    "csv-stringify": "^6.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
