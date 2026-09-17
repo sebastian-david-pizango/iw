@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f2f7;
+    margin: 0;
+    padding: 30px 20px;
+    color: #2c2c2c;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.contenedor-form {
+    max-width: 560px;
+}
+
+h1 {
+    color: #5b2e91;
+    margin-top: 0;
+}
+
+/* --- Barra superior: búsqueda + botón nuevo --- */
+.barra-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.buscador {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-width: 280px;
+}
+
+.buscador input[type="text"] {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.buscador button {
+    padding: 10px 18px;
+    background-color: #5b2e91;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.buscador button:hover {
+    background-color: #472271;
+}
+
+.btn-limpiar {
+    align-self: center;
+    color: #5b2e91;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.btn-nuevo {
+    background-color: #2e9163;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.btn-nuevo:hover {
+    background-color: #24744e;
+}
+
+/* --- Alertas --- */
+.alerta {
+    background-color: #eaf7ee;
+    border: 1px solid #bfe6cc;
+    color: #1e6b3c;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.alerta-error {
+    background-color: #fdecea;
+    border-color: #f5c2bd;
+    color: #a83226;
+}
+
+/* --- Tabla --- */
+.tabla-universidades {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.tabla-universidades thead {
+    background-color: #5b2e91;
+    color: #fff;
+}
+
+.tabla-universidades th {
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12.5px;
+}
+
+.th-link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.flecha {
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+.tabla-universidades td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.tabla-universidades tbody tr:hover {
+    background-color: #faf8fc;
+}
+
+.col-nombre {
+    color: #3b3b3b;
+    font-weight: 500;
+}
+
+.sin-resultados {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+}
+
+/* --- Resolución (número del 1 al 5) --- */
+.resolucion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f3e8ff;
+    color: #5b2e91;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 50%;
+}
+
+/* --- Badges de tipo de gestión --- */
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+.badge-privada {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+}
+
+.badge-pública {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+/* --- Acciones --- */
+.col-acciones {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.btn-editar {
+    background-color: #f2b705;
+    color: #3b2e00;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.btn-eliminar {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-eliminar:hover {
+    background-color: #b8433f;
+}
+
+/* --- Formulario --- */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formulario label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-top: 10px;
+}
+
+.formulario input,
+.formulario select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.acciones-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-guardar {
+    background-color: #5b2e91;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-guardar:hover {
+    background-color: #472271;
+}
+
+.btn-cancelar {
+    background-color: #eee;
+    color: #444;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Universidades Licenciadas - CRUD</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Universidades Licenciadas</h1>
+
+        <div class="barra-superior">
+            <form class="buscador" method="GET" action="/">
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Buscar por nombre, fecha o departamento..."
+                    value="<%= q %>"
+                >
+                <button type="submit">Buscar</button>
+                <% if (q) { %>
+                    <a class="btn-limpiar" href="/">Limpiar</a>
+                <% } %>
+            </form>
+
+            <a class="btn-nuevo" href="/nueva">+ Nueva universidad</a>
+        </div>
+
+        <% if (mensaje) { %>
+            <div class="alerta"><%= mensaje %></div>
+        <% } %>
+
+        <table class="tabla-universidades">
+            <thead>
+                <tr>
+                    <% 
+                    const columnas = [
+                        { key: 'nombre', label: 'Nombre de la Universidad' },
+                        { key: 'fecha', label: 'Fecha de Licenciamiento' },
+                        { key: 'resolucion', label: 'Resolución' },
+                        { key: 'departamento', label: 'Departamento/Provincia' },
+                        { key: 'tipoGestion', label: 'Tipo de Gestión' }
+                    ];
+                    %>
+                    <% columnas.forEach(col => {
+                        const nuevaDir = (sort === col.key && dir === 'asc') ? 'desc' : 'asc';
+                        const params = new URLSearchParams({ q, sort: col.key, dir: nuevaDir }).toString();
+                    %>
+                        <th>
+                            <a href="/?<%= params %>" class="th-link">
+                                <%= col.label %>
+                                <span class="flecha"><%= sort === col.key ? (dir === 'asc' ? '▲' : '▼') : '↕' %></span>
+                            </a>
+                        </th>
+                    <% }) %>
+                    <th class="col-acciones">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (universidades.length === 0) { %>
+                    <tr>
+                        <td colspan="6" class="sin-resultados">No se encontraron universidades.</td>
+                    </tr>
+                <% } else { %>
+                    <% universidades.forEach(u => { %>
+                        <tr>
+                            <td class="col-nombre"><%= u.nombre %></td>
+                            <td><%= formatFecha(u.fecha) %></td>
+                            <td>
+                                <span class="resolucion"><%= u.resolucion %></span>
+                            </td>
+                            <td><%= u.departamento %>/<%= u.provincia %></td>
+                            <td><span class="badge badge-<%= u.tipoGestion.toLowerCase() %>"><%= u.tipoGestion %></span></td>
+                            <td class="col-acciones">
+                                <a class="btn-editar" href="/editar/<%= u.id %>">Editar</a>
+                                <form method="POST" action="/eliminar/<%= u.id %>" onsubmit="return confirm('¿Eliminar esta universidad?');" style="display:inline;">
+                                    <button type="submit" class="btn-eliminar">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
