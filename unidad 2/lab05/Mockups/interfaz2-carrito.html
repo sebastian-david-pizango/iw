@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interfaz 2 - Carrito de compras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<section class="pantalla activa">
+  <div class="contenedor contenedor--medio">
+    <h1 class="titulo">Carrito de compras</h1>
+    <div class="lista-carrito">
+      <article class="fila-carrito">
+        <div class="imagen" aria-hidden="true">📓</div>
+        <div class="info"><strong>Cuaderno A5</strong><span>Tapa dura, 120 hojas</span></div>
+        <div class="totales"><span>Cantidad 1</span><strong>$2.00</strong></div>
+        <button type="button" class="icono-btn btn-quitar" aria-label="Quitar Cuaderno A5 del carrito"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </article>
+      <article class="fila-carrito">
+        <div class="imagen" aria-hidden="true">🎧</div>
+        <div class="info"><strong>Audífonos con cable</strong><span>Sonido claro, micrófono</span></div>
+        <div class="totales"><span>Cantidad 2</span><strong>$60.00</strong></div>
+        <button type="button" class="icono-btn btn-quitar" aria-label="Quitar Audífonos con cable del carrito"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </article>
+    </div>
+    <div class="total-caja"><span>Total</span><strong>$62.00</strong></div>
+    <div class="acciones">
+      <button type="button" class="btn btn--secundario">Continuar comprando</button>
+      <button type="button" class="btn btn--primario">Comprar</button>
+    </div>
+  </div>
+</section>
+</body>
+</html>

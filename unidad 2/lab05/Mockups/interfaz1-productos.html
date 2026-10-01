@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interfaz 1 - Escoger producto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<section class="pantalla activa">
+  <div class="contenedor">
+    <header class="barra-superior">
+      <div class="buscador">
+        <input type="search" placeholder="Buscar productos" aria-label="Buscar productos">
+        <button type="button" class="icono-btn" aria-label="Filtrar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+        </button>
+      </div>
+      <div class="resumen-carrito">
+        <span class="valor-carrito">$62.00</span>
+        <button type="button" class="icono-btn icono-btn--acento" aria-label="Ver carrito"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L20.5 8H6"/></svg><span class="insignia">3</span></button>
+      </div>
+    </header>
+    <main class="productos">
+      <article class="tarjeta ">
+        <h2>Cuaderno A5</h2>
+        <div class="imagen" aria-hidden="true">📓</div>
+        <div class="tarjeta-pie">
+          <span class="precio">$2.00</span>
+          <div class="cantidad">
+            <button type="button" aria-label="Disminuir cantidad">−</button>
+            <span class="num">1</span>
+            <button type="button" aria-label="Aumentar cantidad">+</button>
+            <button type="button" class="anadir" aria-label="Añadir al carrito"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L20.5 8H6"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="tarjeta ">
+        <h2>Audífonos con cable</h2>
+        <div class="imagen" aria-hidden="true">🎧</div>
+        <div class="tarjeta-pie">
+          <span class="precio">$30.00</span>
+          <div class="cantidad">
+            <button type="button" aria-label="Disminuir cantidad">−</button>
+            <span class="num">1</span>
+            <button type="button" aria-label="Aumentar cantidad">+</button>
+            <button type="button" class="anadir" aria-label="Añadir al carrito"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L20.5 8H6"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="tarjeta tarjeta--ancha">
+        <h2>Silla ergonómica</h2>
+        <div class="imagen" aria-hidden="true">🪑</div>
+        <div class="tarjeta-pie">
+          <span class="precio">$250.00</span>
+          <div class="cantidad">
+            <button type="button" aria-label="Disminuir cantidad">−</button>
+            <span class="num">1</span>
+            <button type="button" aria-label="Aumentar cantidad">+</button>
+            <button type="button" class="anadir" aria-label="Añadir al carrito"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L20.5 8H6"/></svg></button>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+</section>
+</body>
+</html>

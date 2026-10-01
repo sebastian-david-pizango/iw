@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interfaz 4 - Datos de la tarjeta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<section class="pantalla activa">
+  <div class="contenedor contenedor--medio">
+    <h1 class="titulo">Datos de la tarjeta</h1>
+    <div class="formulario">
+      <fieldset class="grupo">
+        <legend>Tarjeta</legend>
+        <div class="fila">
+          <div class="campo">Método<span class="metodo-elegido">Visa</span></div>
+        </div>
+        <div class="fila">
+          <label class="campo campo--ancho">Número de tarjeta<input type="text" placeholder="0000 0000 0000 0000"></label>
+        </div>
+        <div class="fila">
+          <label class="campo">Código de seguridad<input type="password" placeholder="123"></label>
+          <label class="campo">Fecha de caducidad<input type="text" placeholder="MM/AA"></label>
+        </div>
+      </fieldset>
+      <div class="acciones">
+        <button type="button" class="btn btn--secundario">Atrás</button>
+        <button type="button" class="btn btn--primario">Aceptar compra</button>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

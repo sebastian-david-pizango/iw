@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interfaz 3 - Método de pago</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<section class="pantalla activa">
+  <div class="contenedor contenedor--medio">
+    <h1 class="titulo">Método de pago</h1>
+    <div class="formulario">
+      <fieldset class="grupo">
+        <legend>Datos del cliente</legend>
+        <div class="fila">
+          <label class="campo">Nombre<input type="text" value="José"></label>
+          <label class="campo">Apellido<input type="text" value="Jaraya"></label>
+        </div>
+        <div class="fila">
+          <label class="campo">Correo electrónico<input type="email" value="jose@gmail.com"></label>
+          <label class="campo">Celular<input type="tel" value="977 774 416"></label>
+        </div>
+        <div class="fila">
+          <label class="campo">País<input type="text" value="Perú"></label>
+          <label class="campo">Departamento<input type="text" value="Arequipa"></label>
+          <label class="campo">Ciudad<input type="text" value="Arequipa"></label>
+        </div>
+        <div class="fila">
+          <label class="campo campo--ancho">Dirección<input type="text" value="727 Av. Melgar"></label>
+          <label class="campo">Código postal<input type="text" value="04001"></label>
+        </div>
+      </fieldset>
+      <fieldset class="grupo">
+        <legend>Método de pago</legend>
+        <label class="campo">Escoge cómo pagar
+          <select><option>Visa</option><option>Mastercard</option><option>American Express</option></select>
+        </label>
+      </fieldset>
+      <div class="acciones">
+        <button type="button" class="btn btn--secundario">Volver al carrito</button>
+        <button type="button" class="btn btn--primario">Continuar</button>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
