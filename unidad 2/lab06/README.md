@@ -2,6 +2,13 @@
 
 Proyecto web desarrollado con Django para una plataforma de venta e intercambio de cartas y productos relacionados con el mundo otaku.
 
+## Integrantes
+
+- Joaquin Torres
+- Franco Rojas
+- Sebastian David
+- Joel Choquepata
+  
 ## Estado actual
 
 Hasta ahora se ha configurado la base del proyecto Django y se ha definido el modelo de datos inicial.
