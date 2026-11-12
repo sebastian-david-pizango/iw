@@ -32,7 +32,10 @@ Luego, en **cuatro terminales**:
 | Angular | `cd frontend-angular && npx ng serve` | http://localhost:4200 |
 | React | `cd frontend-react && npm run dev` | Vite indica el puerto (5174 si el 5173 está ocupado) |
 
-> El backend usa `cors()`, por lo que los tres frontends pueden consumirlo aunque estén en puertos distintos.
+> Nota, la practica fue desarrollada en codespace, por lo cual los links del api que usa el backend son diferentes a si se ejecutara en visual studio code
+> Para que funcione desde visual studio code:
+> En angular se debe modificar el api en el archivo curso.services.ts
+> En react y vue se debe modificar el api en el archivo api.js
 
 ## 3. Funcionalidades implementadas (en los tres frameworks)
 
