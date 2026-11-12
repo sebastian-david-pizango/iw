@@ -59,9 +59,25 @@ Las validaciones también existen en el backend (`400 Bad Request`), de modo que
 
 ## 5. Imagenes de Demostracion
 Imagen del modelo que usamos en las interfaces
+
 ![Imagen Modelo](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab07/Imagenes%20README/Interfaz%20Angular.png)
 
+Imagen de interfaz para crear un curso
 
+![Crear Curso](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab07/Imagenes%20README/Interfaz%20de%20nuevo%20curso.png)
+
+Imagenes de las excepciones usadas en las interfaces
+
+![Exepciones 1](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab07/Imagenes%20README/Interfaz%20con%20excepciones.png)
+![Exepciones 2](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab07/Imagenes%20README/Interfaz%20con%20otras%20expeciones.png)
+
+Imagen de Interfaz de editar curso
+
+![Editar](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab07/Imagenes%20README/Interfaz%20de%20edicion.png)
+
+Imagen de validacion para borrar
+
+![Validacion](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab07/Imagenes%20README/Validacion%20al%20borrar.png)
 
 ## 6. Preguntas de evaluación
 
