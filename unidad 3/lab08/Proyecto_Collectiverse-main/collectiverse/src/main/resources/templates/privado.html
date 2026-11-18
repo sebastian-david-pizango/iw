@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel privado</title><link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body><main>
+  <h1>Panel privado</h1>
+  <p>Bienvenido <strong th:text="${username}">usuario</strong></p>
+  <p>Roles: <span th:text="${roles}">[ROLE_USER]</span></p>
+  <div th:if="${perfil != null}">
+    <p>Nombre: <span th:text="${perfil.fullName}">-</span></p>
+    <p>Correo: <span th:text="${perfil.email}">-</span></p>
+  </div>
+  <p th:if="${perfil == null}"><em>Esta cuenta no tiene perfil adicional.</em></p>
+
+  <a class="btn btn-sec" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Panel de administracion</a>
+
+  <!-- El cierre de sesion es POST y lleva token CSRF (th:action lo agrega) -->
+  <form method="post" th:action="@{/logout}">
+    <button type="submit">Cerrar sesion</button>
+  </form>
+</main></body></html>

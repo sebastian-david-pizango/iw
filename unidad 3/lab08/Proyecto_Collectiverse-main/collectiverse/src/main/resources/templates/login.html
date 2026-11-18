@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iniciar sesion</title><link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body><main>
+  <h2>Iniciar sesion</h2>
+  <div class="error" th:if="${param.error}">Usuario o contrasena incorrectos.</div>
+  <div class="ok" th:if="${param.logout}">Has cerrado sesion correctamente.</div>
+  <div class="ok" th:if="${param.registrado}">Cuenta creada. Ya puedes iniciar sesion.</div>
+
+  <!-- th:action agrega solo el token CSRF -->
+  <form method="post" th:action="@{/login}">
+    <label for="username">Usuario</label>
+    <input type="text" id="username" name="username" required autofocus>
+    <label for="password">Contrasena</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Ingresar</button>
+  </form>
+  <p><a th:href="@{/registro}">Crear una cuenta</a> · <a th:href="@{/}">Volver al inicio</a></p>
+</main></body></html>

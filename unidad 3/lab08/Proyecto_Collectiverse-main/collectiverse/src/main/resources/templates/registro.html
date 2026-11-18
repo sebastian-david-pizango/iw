@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registro</title><link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body><main>
+  <h2>Crear cuenta</h2>
+  <div class="error" th:if="${#fields.hasGlobalErrors()}" th:each="e : ${#fields.globalErrors()}" th:text="${e}">error</div>
+
+  <form method="post" th:action="@{/registro}" th:object="${registro}">
+    <label for="username">Usuario</label>
+    <input type="text" id="username" th:field="*{username}">
+    <div class="campo-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+
+    <label for="fullName">Nombre completo</label>
+    <input type="text" id="fullName" th:field="*{fullName}">
+    <div class="campo-error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+
+    <label for="email">Correo electronico</label>
+    <input type="email" id="email" th:field="*{email}">
+    <div class="campo-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+    <label for="password">Contrasena (minimo 8 caracteres)</label>
+    <input type="password" id="password" th:field="*{password}">
+    <div class="campo-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+    <button type="submit">Registrarme</button>
+  </form>
+  <p><a th:href="@{/login}">Ya tengo cuenta</a></p>
+</main></body></html>

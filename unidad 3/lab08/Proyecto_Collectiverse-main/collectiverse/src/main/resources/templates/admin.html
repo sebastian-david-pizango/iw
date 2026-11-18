@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administracion</title><link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body><main>
+  <h1>Panel de administracion</h1>
+  <p>Solo visible para usuarios con rol ADMIN. Hola, <strong th:text="${username}">admin</strong>.</p>
+  <a class="btn btn-sec" th:href="@{/privado}">Volver al panel</a>
+</main></body></html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collectiverse</title><link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body><main>
+  <h1>Bienvenido a Collectiverse</h1>
+  <p>Esta es una pagina publica: cualquier visitante puede verla.</p>
+
+  <div sec:authorize="!isAuthenticated()">
+    <a class="btn" th:href="@{/login}">Iniciar sesion</a>
+    <a class="btn btn-sec" th:href="@{/registro}">Registrarse</a>
+  </div>
+  <div sec:authorize="isAuthenticated()">
+    <p>Sesion iniciada como <strong sec:authentication="name">usuario</strong>.</p>
+    <a class="btn" th:href="@{/privado}">Ir al panel privado</a>
+  </div>
+</main></body></html>
