@@ -70,7 +70,7 @@ Las reglas de acceso por ruta están definidas en `SecurityConfig`.
 
 La aplicación usa una base de datos PostgreSQL alojada en [Neon](https://neon.tech) (`neondb`).
 
-- Consola (tablas): <https://console.neon.tech/app/projects/winter-feather-96998070/branches/br-cool-math-b5tqd4r6/tables?database=neondb>
+- Tablas: https://console.neon.tech/app/projects/winter-feather-96998070/branches/br-cool-math-b5tqd4r6/tables
 
 ## Imagenes
 
