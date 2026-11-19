@@ -72,6 +72,9 @@ La aplicación usa una base de datos PostgreSQL alojada en [Neon](https://neon.t
 
 - Consola (tablas): <https://console.neon.tech/app/projects/winter-feather-96998070/branches/br-cool-math-b5tqd4r6/tables?database=neondb>
 
+## Imagenes
+
+
 ## Cómo ejecutar
 
 ```bash
@@ -90,4 +93,7 @@ Luego abrir <http://localhost:8080>.
 
 ## Autor
 
-Sebastián David Pizango – Ingeniería Web
+Sebastián David  
+Joel Choquepata
+Franco Rojas
+Joaquin Torres
