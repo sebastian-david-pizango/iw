@@ -12,7 +12,13 @@
   </div>
   <p th:if="${perfil == null}"><em>Esta cuenta no tiene perfil adicional.</em></p>
 
-  <a class="btn btn-sec" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Panel de administracion</a>
+  <h2>Mis permisos</h2>
+  <ul>
+    <li>USER: acceso a este panel</li>
+    <li sec:authorize="hasRole('VENDEDOR')">VENDEDOR: <a th:href="@{/vender}">ir a vender</a></li>
+    <li sec:authorize="hasRole('CALIFICADOR')">CALIFICADOR: <a th:href="@{/calificar}">ir a calificar</a></li>
+    <li sec:authorize="hasRole('ADMIN')">ADMIN: <a th:href="@{/admin}">panel de administracion</a></li>
+  </ul>
 
   <!-- El cierre de sesion es POST y lleva token CSRF (th:action lo agrega) -->
   <form method="post" th:action="@{/logout}">

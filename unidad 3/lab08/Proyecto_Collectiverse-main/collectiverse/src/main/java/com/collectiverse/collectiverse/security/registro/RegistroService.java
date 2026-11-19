@@ -1,5 +1,8 @@
 package com.collectiverse.collectiverse.security.registro;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
@@ -28,7 +31,7 @@ public class RegistroService {
     }
 
     @Transactional
-    public void registrar(RegistroForm form) {
+    public void registrar(RegistroForm form, boolean quienRegistraEsAdmin) {
         String username = form.getUsername().trim();
         String email = form.getEmail().trim().toLowerCase();
 
@@ -39,9 +42,25 @@ public class RegistroService {
             throw new ConflictException("Ese correo ya esta registrado");
         }
 
+        // Validacion en el SERVIDOR: el formulario no es de fiar (se puede alterar el HTML).
+        boolean pideAdmin = "ADMIN".equals(form.getRole());
+        if (pideAdmin && !quienRegistraEsAdmin) {
+            throw new ConflictException("Solo un administrador puede crear usuarios con rol ADMIN");
+        }
+        // USER siempre; ADMIN solo si lo pide un admin; y los permisos autoasignables elegidos.
+        Set<String> rolesFinales = new LinkedHashSet<>();
+        rolesFinales.add(Permisos.USER);
+        if (pideAdmin) rolesFinales.add("ADMIN");
+        if (form.getPermisos() != null) {
+            for (String perm : form.getPermisos()) {
+                if (Permisos.AUTOASIGNABLES.contains(perm)) rolesFinales.add(perm);
+            }
+        }
+        String[] roles = rolesFinales.toArray(new String[0]);
+
         users.createUser(User.withUsername(username)
                 .password(encoder.encode(form.getPassword()))   // se guarda el hash BCrypt
-                .roles("USER")                                   // siempre USER; ADMIN solo lo crea AdminInicial
+                .roles(roles)
                 .build());
 
         profiles.save(new UserProfile(username, email, form.getFullName().trim()));

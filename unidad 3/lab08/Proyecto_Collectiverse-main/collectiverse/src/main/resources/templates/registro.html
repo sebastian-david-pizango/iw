@@ -23,6 +23,22 @@
     <input type="password" id="password" th:field="*{password}">
     <div class="campo-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 
+    <label for="role">Rol</label>
+    <select id="role" th:field="*{role}">
+      <option value="USER">USER (usuario normal)</option>
+      <option value="ADMIN" th:if="${puedeElegirAdmin}">ADMIN (administrador)</option>
+    </select>
+    <p class="campo-error" th:unless="${puedeElegirAdmin}">El rol ADMIN solo lo puede asignar un administrador con sesion iniciada.</p>
+
+    <label>Permisos adicionales (opcional)</label>
+    <div th:each="p : ${permisosDisponibles}">
+      <label style="font-weight:normal">
+        <input type="checkbox" style="width:auto" th:field="*{permisos}" th:value="${p}">
+        <span th:text="${p}">PERMISO</span>
+      </label>
+    </div>
+    <p class="campo-error">Todos los usuarios tienen el permiso USER. Un administrador puede cambiar tus permisos despues.</p>
+
     <button type="submit">Registrarme</button>
   </form>
   <p><a th:href="@{/login}">Ya tengo cuenta</a></p>

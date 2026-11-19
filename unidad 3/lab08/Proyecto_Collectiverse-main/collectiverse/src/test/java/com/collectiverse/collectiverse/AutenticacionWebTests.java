@@ -80,7 +80,7 @@ class AutenticacionWebTests {
         MockHttpSession session = (MockHttpSession) mvc
                 .perform(formLogin("/login").user("estudiante1").password(PASS_EST))
                 .andExpect(status().isFound())
-                .andExpect(redirectedUrl("/privado"))
+                .andExpect(redirectedUrl("/bienvenida"))
                 .andExpect(authenticated().withUsername("estudiante1"))
                 .andReturn().getRequest().getSession(false);
         assertNotNull(session);
@@ -141,6 +141,35 @@ class AutenticacionWebTests {
            .andExpect(authenticated().withUsername("nuevo_user"));
     }
 
+    // Un visitante anonimo NO puede crearse una cuenta ADMIN aunque altere el formulario
+    @Test
+    void anonimoNoPuedeRegistrarseComoAdmin() throws Exception {
+        mvc.perform(post("/registro").with(csrf())
+                .param("username", "intruso")
+                .param("fullName", "Intruso")
+                .param("email", "intruso@example.com")
+                .param("password", "ClaveSegura1!")
+                .param("role", "ADMIN"))
+           .andExpect(status().isOk())
+           .andExpect(view().name("registro"));
+        assertFalse(users.userExists("intruso"));
+    }
+
+    // Un ADMIN autenticado si puede crear otro ADMIN
+    @Test
+    @WithMockUser(username = "admin_test", roles = {"ADMIN", "USER"})
+    void adminPuedeCrearOtroAdmin() throws Exception {
+        mvc.perform(post("/registro").with(csrf())
+                .param("username", "admin2")
+                .param("fullName", "Segundo Admin")
+                .param("email", "admin2@example.com")
+                .param("password", "ClaveSegura1!")
+                .param("role", "ADMIN"))
+           .andExpect(redirectedUrl("/login?registrado"));
+        assertTrue(users.loadUserByUsername("admin2").getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN")));
+    }
+
     @Test
     void registroConUsuarioRepetidoMuestraError() throws Exception {
         mvc.perform(post("/registro").with(csrf())
@@ -160,5 +189,76 @@ class AutenticacionWebTests {
            .andExpect(status().isOk());
         mvc.perform(get("/api/admin/ping").with(httpBasic("estudiante1", PASS_EST)))
            .andExpect(status().isForbidden());
+    }
+
+    // Al registrarse se pueden elegir permisos no privilegiados; ADMIN por esta via se ignora
+    @Test
+    void registroConPermisosAsignaSoloLosPermitidos() throws Exception {
+        mvc.perform(post("/registro").with(csrf())
+                .param("username", "vendedor1")
+                .param("fullName", "Vendedor Uno")
+                .param("email", "vendedor1@example.com")
+                .param("password", "ClaveSegura1!")
+                .param("permisos", "VENDEDOR", "ADMIN"))
+           .andExpect(redirectedUrl("/login?registrado"));
+        var auth = users.loadUserByUsername("vendedor1").getAuthorities().stream()
+                .map(a -> a.getAuthority()).toList();
+        assertTrue(auth.contains("ROLE_USER"));
+        assertTrue(auth.contains("ROLE_VENDEDOR"));
+        assertFalse(auth.contains("ROLE_ADMIN"), "ADMIN no se puede autoasignar");
+    }
+
+    // Un ADMIN puede editar los permisos de otro usuario desde /admin
+    @Test
+    @WithMockUser(username = "admin_test", roles = {"ADMIN", "USER"})
+    void adminEditaPermisosDeUnUsuario() throws Exception {
+        mvc.perform(post("/admin/usuarios/estudiante1/permisos").with(csrf())
+                .param("roles", "CALIFICADOR"))
+           .andExpect(redirectedUrl("/admin"));
+        var auth = users.loadUserByUsername("estudiante1").getAuthorities().stream()
+                .map(a -> a.getAuthority()).toList();
+        assertTrue(auth.contains("ROLE_USER"));
+        assertTrue(auth.contains("ROLE_CALIFICADOR"));
+        assertFalse(auth.contains("ROLE_ADMIN"));
+    }
+
+    // Un usuario normal no puede editar permisos
+    @Test
+    @WithMockUser(username = "estudiante1", roles = "USER")
+    void usuarioNormalNoPuedeEditarPermisos() throws Exception {
+        mvc.perform(post("/admin/usuarios/estudiante1/permisos").with(csrf())
+                .param("roles", "ADMIN"))
+           .andExpect(status().isForbidden());
+    }
+
+    // Tras iniciar sesion se llega a la pagina "Hola, ingresaste"
+    @Test
+    @WithMockUser(username = "estudiante1", roles = "USER")
+    void paginaBienvenidaMuestraMensaje() throws Exception {
+        mvc.perform(get("/bienvenida"))
+           .andExpect(status().isOk())
+           .andExpect(content().string(org.hamcrest.Matchers.containsString("Hola, ingresaste")));
+    }
+
+    // Cada permiso abre su pagina; sin el permiso responde 403
+    @Test
+    @WithMockUser(username = "v", roles = {"USER", "VENDEDOR"})
+    void vendedorEntraAVender() throws Exception {
+        mvc.perform(get("/vender")).andExpect(status().isOk());
+        mvc.perform(get("/calificar")).andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(username = "c", roles = {"USER", "CALIFICADOR"})
+    void calificadorEntraACalificar() throws Exception {
+        mvc.perform(get("/calificar")).andExpect(status().isOk());
+        mvc.perform(get("/vender")).andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(username = "estudiante1", roles = "USER")
+    void usuarioSinPermisosNoEntraAVenderNiCalificar() throws Exception {
+        mvc.perform(get("/vender")).andExpect(status().isForbidden());
+        mvc.perform(get("/calificar")).andExpect(status().isForbidden());
     }
 }

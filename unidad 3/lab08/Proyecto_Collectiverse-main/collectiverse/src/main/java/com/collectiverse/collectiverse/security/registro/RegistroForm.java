@@ -1,5 +1,8 @@
 package com.collectiverse.collectiverse.security.registro;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -25,6 +28,18 @@ public class RegistroForm {
     @NotBlank(message = "La contrasena es obligatoria")
     @Size(min = 8, max = 72, message = "La contrasena debe tener entre 8 y 72 caracteres")
     private String password;
+
+    // USER o ADMIN. ADMIN solo lo acepta el servidor si quien registra ya es administrador.
+    private String role = "USER";
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+
+    // Permisos que la persona elige al registrarse (el servidor filtra los no permitidos)
+    private List<String> permisos = new ArrayList<>();
+
+    public List<String> getPermisos() { return permisos; }
+    public void setPermisos(List<String> permisos) { this.permisos = permisos; }
 
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }

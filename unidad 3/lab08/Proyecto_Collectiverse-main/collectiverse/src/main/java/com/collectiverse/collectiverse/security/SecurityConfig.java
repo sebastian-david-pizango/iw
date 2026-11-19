@@ -67,12 +67,15 @@ public class SecurityConfig {
                 .requestMatchers("/", "/login", "/registro", "/css/**", "/error").permitAll()
                 // solo administradores (equivalente a permisos/grupos de Django)
                 .requestMatchers("/admin/**").hasRole("ADMIN")
+                // permisos: cada uno abre su propia pagina
+                .requestMatchers("/vender/**").hasAnyRole("VENDEDOR", "ADMIN")
+                .requestMatchers("/calificar/**").hasAnyRole("CALIFICADOR", "ADMIN")
                 // cualquier otra pagina exige sesion (equivalente a @login_required)
                 .anyRequest().authenticated())
             // equivalente a LoginView + LOGIN_URL + LOGIN_REDIRECT_URL
             .formLogin(form -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/privado")   // si venia de otra pagina protegida, vuelve a ella (como ?next=)
+                .defaultSuccessUrl("/bienvenida", true)   // tras iniciar sesion siempre va a "Hola, ingresaste"
                 .failureUrl("/login?error")
                 .permitAll())
             // equivalente a LogoutView + LOGOUT_REDIRECT_URL (POST protegido con CSRF)

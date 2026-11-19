@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenida</title><link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body><main>
+  <h1>Hola, ingresaste</h1>
+  <p>Iniciaste sesion como <strong th:text="${username}">usuario</strong>.</p>
+  <a class="btn" th:href="@{/privado}">Ir a mi panel</a>
+  <form method="post" th:action="@{/logout}">
+    <button type="submit" class="btn-sec">Cerrar sesion</button>
+  </form>
+</main></body></html>

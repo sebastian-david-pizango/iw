@@ -2,8 +2,33 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Administracion</title><link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
-<body><main>
+<body><main class="ancha">
   <h1>Panel de administracion</h1>
   <p>Solo visible para usuarios con rol ADMIN. Hola, <strong th:text="${username}">admin</strong>.</p>
+  <a class="btn" th:href="@{/registro}">Crear usuario (con rol)</a>
+  <div class="ok" th:if="${mensaje}" th:text="${mensaje}">ok</div>
+  <div class="error" th:if="${aviso}" th:text="${aviso}">aviso</div>
+
+  <h2>Usuarios y permisos</h2>
+  <table>
+    <thead><tr><th>Usuario</th><th>Permisos</th><th></th></tr></thead>
+    <tbody>
+      <tr th:each="u : ${usuarios}">
+        <td th:text="${u.username}">usuario</td>
+        <td colspan="2">
+          <form method="post" th:action="@{/admin/usuarios/{n}/permisos(n=${u.username})}">
+            <span>USER (fijo)</span>
+            <label th:each="r : ${asignables}" style="display:inline; font-weight:normal; margin-left:10px">
+              <input type="checkbox" name="roles" style="width:auto"
+                     th:value="${r}" th:checked="${u.roles.contains(r)}">
+              <span th:text="${r}">ROL</span>
+            </label>
+            <button type="submit" style="margin-top:0; padding:4px 12px">Guardar</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
   <a class="btn btn-sec" th:href="@{/privado}">Volver al panel</a>
 </main></body></html>
