@@ -73,15 +73,27 @@ La aplicación usa una base de datos PostgreSQL alojada en [Neon](https://neon.t
 - Consola (tablas): <https://console.neon.tech/app/projects/winter-feather-96998070/branches/br-cool-math-b5tqd4r6/tables?database=neondb>
 
 ## Imagenes
+
+Tablas del Neon 
+
 ![Tabla usuarios](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab08/Imagenes%20README/Base%20de%20datos.png)
+
+Datos para crear una cuenta
 
 ![Crear la cuenta](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab08/Imagenes%20README/Creacion%20de%20cuenta.png)
 
+Datos del usuario con cuenta creada
+
 ![Datos del usuario](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab08/Imagenes%20README/Datos%20Usuario.png)
+
+Inicio de la pagina
 
 ![Inicio de página](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab08/Imagenes%20README/Inicio.png)
 
+
 ![Inicio de sesion](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab08/Imagenes%20README/Registro%20de%20usuario.png)
+
+Sesion iniciada
 
 ![Sesión Iniciada](https://github.com/sebastian-david-pizango/iw/blob/main/unidad%203/lab08/Imagenes%20README/Sesión%20Iniciada.png)
 ## Cómo ejecutar
@@ -102,7 +114,7 @@ Luego abrir <http://localhost:8080>.
 
 ## Autor
 
-Sebastián David  
-Joel Choquepata
-Franco Rojas
-Joaquin Torres
+- Sebastián David  
+- Joel Choquepata
+- Franco Rojas
+- Joaquin Torres
